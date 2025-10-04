@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Navbar from "./components/Navbar";
+import Hero from "./components/Hero";
 
 const App = () => {
   const [theme, setTheme] = useState(
@@ -9,6 +10,7 @@ const App = () => {
   return (
     <div className="dark:bg-black realtive">
       <Navbar theme={theme} setTheme={setTheme} />
+      <Hero />
     </div>
   );
 };
