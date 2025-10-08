@@ -56,7 +56,7 @@ const Navbar = ({ theme, setTheme }) => {
 
         <a
           onClick={() => setSidebarOpen(false)}
-          href="#contactuss"
+          href="#contact"
           className="sm:hover:border-b"
         >
           Contact Us
