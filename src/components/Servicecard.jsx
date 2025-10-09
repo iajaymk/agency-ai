@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react";
+import { motion } from "motion/react";
 
-const Servicecard = ({ service }) => {
+const Servicecard = ({ service, index }) => {
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [visible, setVisible] = useState(false);
 
@@ -11,7 +12,11 @@ const Servicecard = ({ service }) => {
   };
 
   return (
-    <div
+    <motion.div
+      initial={{ y: 30, opacity: 0 }}
+      whileInView={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.5, delay: index * 0.2 }}
+      viewport={{ once: true }}
       className="relative overflow-hidden max-w-lg m-2 sm:m-4 rounded-xl border
     border-gray-200 dark:border-gray-700 shadow-2xl shadow-gray-100
     dark:shadow-white/10"
@@ -47,7 +52,7 @@ const Servicecard = ({ service }) => {
           <p className="text-sm mt-2">{service.description}</p>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

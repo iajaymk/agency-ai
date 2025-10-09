@@ -2,6 +2,7 @@ import React from "react";
 import Title from "./Title";
 import assets from "../assets/assets";
 import toast from "react-hot-toast";
+import { motion } from "motion/react";
 
 const ContactUs = () => {
   const onSubmit = async (event) => {
@@ -31,7 +32,11 @@ const ContactUs = () => {
   };
 
   return (
-    <div
+    <motion.div
+      initial="hidden"
+      whileInView="visible"
+      transition={{ staggerChildren: 0.2 }}
+      viewport={{ once: true }}
       id="contact"
       className="flex flex-col items-center gap-7 px-4 sm:px-12 lg:px-24 xl:px-40 pt-30 text-gray-700 dark:text-white"
     >
@@ -39,7 +44,11 @@ const ContactUs = () => {
         title={"Reach out to us"}
         desc="Ready to grow your brand? Let's connect and build something exceptional together"
       />
-      <form
+      <motion.form
+        initial={{ y: 30, opacity: 0 }}
+        whileInView={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.5, delay: 0.4 }}
+        viewport={{ once: true }}
         onSubmit={onSubmit}
         className="grid sm:grid-cols-2 gap-3 sm:gap-5 max-w-2xl w-full"
       >
@@ -96,8 +105,8 @@ const ContactUs = () => {
           Submit
           <img src={assets.arrow_icon} alt="" className="w-4" />
         </button>
-      </form>
-    </div>
+      </motion.form>
+    </motion.div>
   );
 };
 
